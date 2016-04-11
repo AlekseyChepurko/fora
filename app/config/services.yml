@@ -1,0 +1,22 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+  admin.test:
+          class: Fora\TestBundle\Admin\TestAdmin
+          arguments: [~, Fora\TestBundle\Entity\Test, ~]
+          tags:
+              - { name: sonata.admin, manager_type: orm, label: Tests }
+  admin.question:
+          class: Fora\TestBundle\Admin\QuestionAdmin
+          arguments: [~, Fora\TestBundle\Entity\Question, ~]
+          tags:
+              - { name: sonata.admin, manager_type: orm, label: Questions }
+
+  admin.answer:
+          class: Fora\TestBundle\Admin\AnswerAdmin
+          arguments: [~, Fora\TestBundle\Entity\Answer, ~]
+          tags:
+              - { name: sonata.admin, manager_type: orm, label: Answers }

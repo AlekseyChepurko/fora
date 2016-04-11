@@ -1,0 +1,21 @@
+Fora\TestBundle\Entity\Test:
+    type: entity
+    table: null
+    repositoryClass: Fora\TestBundle\Repository\TestRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+
+    oneToMany:
+        questions:
+            targetEntity: Question
+            mappedBy: test
+    lifecycleCallbacks: {  }

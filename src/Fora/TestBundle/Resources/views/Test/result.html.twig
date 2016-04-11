@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{{parent()}}
+
+	<ul>
+	{%for answer in answers%}
+		<div>{{loop.index}} - {%if answer.status == 1%} Correct! {%else%} Wrong! {%endif%}</div>
+	{%endfor %}
+	</ul>
+
+	
+	
+		
+{% endblock body %}

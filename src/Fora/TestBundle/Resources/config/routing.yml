@@ -1,0 +1,27 @@
+fora_test_homepage:
+    path:     /
+    defaults: { _controller: ForaTestBundle:Default:index }
+
+fora_testing_page:
+  path: /test/{test_name}
+  defaults: {_controller: ForaTestBundle:Test:testing}
+
+fora_test_result:
+  path: /test/{test_name}/results
+  defaults: {_controller: ForaTestBundle:Test:result}
+# when i realised that need to use sonata admin bundle was too late :( 
+# fora_admin_page:
+#   path: /admin
+#   defaults: {_controller: ForaTestBundle:Admin:hello }
+
+# add_test:
+#     path:     admin/AddTest
+#     defaults: { _controller: ForaTestBundle:Admin:AddTest }
+
+# delete_test:
+#     path:     admin/DeleteTest
+#     defaults: { _controller: ForaTestBundle:Admin:DeleteTest }
+
+# edit:
+#   path: admin/edit
+#   defaults: {_controller: ForaTestBundle:Admin:Edit}

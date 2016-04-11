@@ -1,0 +1,36 @@
+Fora\TestBundle\Entity\Question:
+    type: entity
+    table: null
+    repositoryClass: Fora\TestBundle\Repository\QuestionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: 255
+        body:
+            type: text
+            column: Body
+        answers:
+            type: array
+        variants:
+            type: array
+            nullable: true
+        picUrl:
+            type: string
+            length: 255
+            nullable: true
+            column: pic_url
+        testName:
+            type: string
+            length: 255
+            column: test_name
+    manyToOne:
+        test:
+            targetEntity: Test
+            inversedBy: questions
+    lifecycleCallbacks: {  }

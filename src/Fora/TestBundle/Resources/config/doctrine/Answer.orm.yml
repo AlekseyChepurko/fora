@@ -1,0 +1,31 @@
+Fora\TestBundle\Entity\Answer:
+    type: entity
+    table: null
+    repositoryClass: Fora\TestBundle\Repository\AnswerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        userName:
+            type: string
+            length: 255
+            column: user_name
+        date:
+            type: datetime
+        testName:
+            type: string
+            length: 255
+            column: test_name
+        answers:
+            type: array
+            nullable: true
+        rightAnswers:
+            type: array
+            column: right_answers
+        status:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

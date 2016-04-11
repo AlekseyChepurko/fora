@@ -1,0 +1,15 @@
+{% extends 'ForaTestBundle::layout.html.twig' %}
+
+{% block body %}
+	{{parent ()}}
+
+	<div class="row text-center">
+		{% for test in tests %}
+			<div class="col-md-1">
+				<a class="testName btn text-uppercase" href="/test/{{test.name}}"> {{test.name}} </a>	
+			</div>
+		{% endfor %}
+	</div>
+
+	
+{% endblock %}

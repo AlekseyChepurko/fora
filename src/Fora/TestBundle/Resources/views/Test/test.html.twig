@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{{parent()}}
+	{{form_start(form)}}
+	<h1>{{test_name}}</h1>
+	{%for question in questions %}
+		<fieldset class="questionBody">
+			<h3>Question {{loop.index}}:</h3> {{question.body}}
+				<!-- i had to write this... twig has no switch :( -->
+				{%if question.type=='UniAnswer'%}
+					{%for variant in question.variants %}
+						<p></p><input type="radio" name="question{{question.id}}" value="{{question.variants[loop.index]}}">{{question.variants[loop.index]}}</input>
+					{%endfor%}
+					
+				{%elseif question.type=='MultiAnswer'%}
+					{%for variant in question.variants %}
+						<p></p><input type="checkbox" name="question{{question.id}}_{{loop.index}}" value="{{question.variants[loop.index]}}">{{question.variants[loop.index]}}</input>
+					{%endfor%}
+				{%else%}
+					<p></p><input type="text" name="question{{question.id}}"></input>
+
+					{%endif%}
+		</fieldset>
+	{% endfor %}
+
+	{{form_row(form.Submit, {'label': "Submit"})}}
+	<!-- {{form_row(form.questions)}} -->
+	{{form_end(form)}}
+{% endblock %}
